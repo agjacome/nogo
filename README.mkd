@@ -2,7 +2,7 @@ NOGO: Lexer and Parser
 ======================
 
 Lexer and Parser of NOGO programming language
-[specs](http://ccia.ei.uvigo.es/docencia/PL/doc/nogo.html). It is a college
+([specs](http://ccia.ei.uvigo.es/docencia/PL/doc/nogo.html)). It is a college
 [assignment](http://ccia.ei.uvigo.es/docencia/PL/practicas1213/practica.html)
 for a Compilers course, and NOGO is just a toy language designed for it.
 
