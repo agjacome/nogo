@@ -1,0 +1,17 @@
+procedure FACTORIAL_NUMERO is
+  number: INTEGER;
+
+  function getResult(number) return INTEGER is
+    aux: INTEGER;
+    i:  INTEGER;
+  begin
+    aux := 0;
+    for i in reverse 1..number loop
+      aux = aux + i * (i-1);
+    end loop;
+    return aux;
+  end getResult;
+
+begin
+  number := getResult(7);
+end FACTORIAL_NUMERO;

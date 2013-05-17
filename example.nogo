@@ -1,0 +1,51 @@
+procedure ORDENAR_POR_MONTONES is
+    N: constant INTEGER := 10;
+    TABLA: array(1..N) of INTEGER;
+    TEMPORAL: INTEGER;
+
+    procedure METER(I,N: in out INTEGER) is
+        TEMPORAL,J: INTEGER;
+        TERMINAR: BOOLEAN;
+    begin
+        TEMPORAL := TABLA(I);
+        J := 2*I;
+        TERMINAR := FALSE;
+
+        while (J <= N) and not TERMINAR loop
+           if (J < N) and (TABLA(J) < TABLA(J+1)) then
+                J := J+1;
+            end if;
+           if TEMPORAL > TABLA(J) then
+                TERMINAR := TRUE;
+           else
+                TABLA(J/2) := TABLA(J);
+                J := 2*J;
+           end if;
+        end loop;
+
+        TABLA(J/2) := TEMPORAL;
+    end METER;
+    procedure CONSTRUIR_MONTON is
+    begin
+        for I in reverse 1..N/2 loop
+            METER(I,N);
+        end loop;
+    end CONSTRUIR_MONTON;
+
+begin
+    for I in 1..N loop
+        READ(TABLA(I));
+    end loop;
+    CONSTRUIR_MONTON;
+
+    for I in reverse 1..N-1 loop
+        TEMPORAL := TABLA(I+1);
+        TABLA(I+1) := TABLA(1);
+        TABLA(1) := TEMPORAL;
+        METER(1,I);
+    end loop;
+
+    for I in 1..N loop
+        WRITE(TABLA(I));
+    end loop;
+end ORDENAR_POR_MONTONES;
